@@ -1,0 +1,26 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to Our School</h1>
+    <p>This is the home page of our school website.</p>
+    
+    {% if user.is_authenticated %}
+        <p>You are logged in as {{ user.username }}.</p>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+        <a href="{% url 'student-all' %}"><button>List All Students</button></a>
+    {% else %}
+        <form action="{% url 'login' %}" method="get">
+            <button type="submit">Login</button>
+        </form>
+    {% endif %}
+</body>
+</html>

@@ -3,6 +3,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from schoolapp.models import Student
 
+def home(request):
+    return render(request, 'home.html')
+
+
+
 def login_student(request):
     if request.method == "POST":
         username = request.POST.get("username")
