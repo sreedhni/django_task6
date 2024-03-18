@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Students</h2>
+    <ul>
+        {% for student in students %}
+            <li>
+                <strong>Name:</strong> {{ student.name }} <br>
+                <strong>Age:</strong> {{ student.age }} <br>
+                <strong>Subject:</strong> {{ student.subject }} <br>
+                <strong>location:</strong> {{ student.place}} <br>
+
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>
