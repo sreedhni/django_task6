@@ -31,6 +31,7 @@ def student_list(request):
     students = Student.objects.all()
     return render(request, 'student_list.html', {'students': students})
 
+
 @login_required
 def logout_student(request):
     logout(request)
